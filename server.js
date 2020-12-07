@@ -50,5 +50,5 @@ app.delete('/api/notes/:id', function (req, res) {
 });
 
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname + './public/indexx.html'));
+    res.sendFile(path.join(__dirname + './public/index.html'));
 });
