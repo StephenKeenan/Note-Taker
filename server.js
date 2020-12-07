@@ -1,13 +1,12 @@
 const express = require('express');
 const path = require('path');
-const fs = require('fs');
-const util = require('util');
+const NotesModel = require("./db/NotesModel.js")
+
 const app = express();
 const PORT = process.env.PORT || 3000;
 const db = require('./db/db.json');
 
 let note = [];
-const { v4: uuidv4 } = require('uuid')
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -18,16 +17,17 @@ app.listen(PORT, function () {
 });
 
 
-app.get('*', function (req, res) {
-    res.sendFile(path.join(__dirname, 'public/assets/js/index.js'));
-});
-
 app.get('/notes', function (req, res) {
     res.sendFile(path.join(__dirname, 'public/notes.html'))
 });
 
 app.get('/api/notes', function (req, res) {
-    return res.json(JSON.parse(fs.readFileSync('/.db/db.json')))
+    NotesModel.retriveNotes()
+    .then(function (notes) {
+        res.json(notes)
+    }).catch(function(error) {
+        res.json(error)
+    })
 });
 
 app.post('/api/notes', (req, res) => {
@@ -49,6 +49,9 @@ app.delete('/api/notes/:id', function (req, res) {
     res.json(true);
 });
 
+// all other routes  display the index.html page
 app.get('*', function(req, res) {
-    res.sendFile(path.join(__dirname + './public/index.html'));
+    res.sendFile(path.join(__dirname + '/public/index.html'));
 });
+
+
