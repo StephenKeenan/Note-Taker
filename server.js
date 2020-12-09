@@ -22,7 +22,7 @@ app.get('/notes', function (req, res) {
 });
 
 app.get('/api/notes', function (req, res) {
-    NotesModel.retriveNotes()
+    NotesModel.retrieveNotes()
     .then(function (notes) {
         res.json(notes)
     }).catch(function(error) {
