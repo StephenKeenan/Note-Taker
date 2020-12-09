@@ -10,8 +10,8 @@ class NotesModel {
         return readFileAsync("db/db.json", 'utf8')
     }
 
-    // we will use this function to retrive all notes
-    retriveNotes(){
+    // we will use this function to retrieve all notes
+    retrieveNotes(){
         return this.readDB().then(function (notes) {
             let formatedNotes = [].concat(JSON.parse(notes))
             return formatedNotes
