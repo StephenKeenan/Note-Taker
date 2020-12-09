@@ -1,23 +1,20 @@
-//start with dependencies express is the app
 const express = require('express');
-const app = express(); // app is express 
-const path = require("path");  
-const PORT = process.env.PORT || 3000; //something for the PORT to listen incoming request 
+const path = require("path");
 const fs = require("fs");
-const db = require("./db/db.json");// getting the db file to make the changes in the notes
-// console.log(db); //console log whats in the db.json file
+const app = express();  
+const PORT = process.env.PORT || 3000; 
+const db = require("./db/db.json");
 let note = [];
-//unique ID for the notes
 const {v4 : uuidv4} = require('uuid')
 
 //ALL APP.USE (3)
 
 //the app.use is setting up the function for express to handle the data parsing. 
 app.use(express.json()); //function to call the inforamtion to the body req. 
-
+app.use(express.urlencoded({extended: true}));
 app.use(express.static(path.join(__dirname, "public"))); //using express.static and app.use to pull all the files from the public folder to use mostly from the css styling. 
 
-app.use(express.urlencoded({extended: true})); //using the app to express acess to the body requirements (req) function 
+ //using the app to express acess to the body requirements (req) function 
 
 //APP CALLING THE LISTENING FUNCTION TO THE LOCAL HOST
 
