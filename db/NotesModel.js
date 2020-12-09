@@ -1,26 +1,26 @@
-const fs = require('fs');
-const util = require('util');
-const { v4: uuidv4 } = require('uuid')
+//const fs = require('fs');
+//const util = require('util');
+//const { v4: uuidv4 } = require('uuid')
 
-const readFileAsync = util.promisify(fs.readFile)
-const writeFileAsync = util.promisify(fs.writeFile)
+//const readFileAsync = util.promisify(fs.readFile)
+//const writeFileAsync = util.promisify(fs.writeFile)
 
-class NotesModel {
-    readDB() {
-        return readFileAsync("db/db.json", 'utf8')
-    }
+//class NotesModel {
+    //readDB() {
+        //return readFileAsync("db/db.json", 'utf8')
+    //}
 
     // we will use this function to retrieve all notes
-    retrieveNotes(){
-        return this.readDB().then(function (notes) {
-            let formatedNotes = [].concat(JSON.parse(notes))
-            return formatedNotes
-        })
-    }
+    //retrieveNotes(){
+        //return this.readDB().then(function (notes) {
+            //let formatedNotes = [].concat(JSON.parse(notes))
+            //return formatedNotes
+        //})
+    //}
 
-    createNewNote() {
+    //createNewNote() {
         
-    }
-}
+    //}
+//}
 
 module.exports = new NotesModel()
