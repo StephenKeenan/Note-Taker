@@ -19,11 +19,11 @@ app.listen(PORT, function () {
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'public/assets/js/index.js'));
-}); 
+});
 
 app.get('/notes', function (req, res) {
     res.sendFile(path.join(__dirname, 'public/notes.html'))
-}); 
+});
 
 app.get('/api/notes', function (req, res) {
     return res.json(JSON.parse(fs.readFileSync("./db/db.json")));
