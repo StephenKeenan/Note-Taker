@@ -4,7 +4,7 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 const db = require('./db/db.json');
-let note = [];
+let noteData = [];
 const { v4: uuidv4 } = require('uuid')
 
 app.use(express.json());
@@ -31,12 +31,12 @@ app.get('/api/notes', function (req, res) {
 
 
 app.post('/api/notes', (req, res) => {
-    let note = req.body;
+    let noteData = req.body;
     let db = JSON.parse(fs.readFileSync('./db/db.json', 'utf8'));
     note.id = uuidv4();
-    db.push(note);
+    db.push(noteData);
     fs.writeFileSync('./db/db.json', JSON.stringify(db));
-    res.json(note);
+    res.json(noteData);
 });
 
 app.delete('/api/notes/:id', function (req, res) {
