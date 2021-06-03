@@ -15,3 +15,8 @@ SO THAT I can organize my thoughts and keep track of tasks I need to complete
 ## See it Deployed
 
 https://tranquil-journey-96421.herokuapp.com/
+
+## Visual Representation
+
+![Note Taker](https://github.com/StephenKeenan/DatePlanner/blob/master/assets/Work%20Day%20Scheduler.JPG)
+
