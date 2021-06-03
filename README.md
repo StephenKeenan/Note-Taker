@@ -18,5 +18,5 @@ https://tranquil-journey-96421.herokuapp.com/
 
 ## Visual Representation
 
-![Note Taker](https://github.com/StephenKeenan/DatePlanner/blob/master/assets/Work%20Day%20Scheduler.JPG)
+![Note Taker](https://github.com/StephenKeenan/Note-Taker/blob/master/Assets/Note%20Taker.JPG)
 
